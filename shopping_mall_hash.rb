@@ -1,7 +1,8 @@
-class Shoppingmall
-	@@total_price=0
-	@@shopping_array=[]
+class Mainclass
+	@@totalprice=0
 	def initialize()
+		@cat=@pro=@q=@p=Array.new
+		@i=@j=@k=@l=0
 		print "Enter name:"
 		@name=gets
 		puts "\nWelcome : #{@name}"
@@ -10,8 +11,8 @@ class Shoppingmall
 	def categories()
 		puts "\n1.Electronics \n2.Appliances \n3.Furniture \n4.Fashion"
 		print "\nPlease select category:  "
-		category_choice=gets
-		case category_choice.to_i
+		c=gets
+		case c.to_i
 			when 1
 				electronics()
 			when 2
@@ -25,11 +26,12 @@ class Shoppingmall
 		end
 	end
 	def electronics()
-		@categories="Electronics"
+		@cat[@i]="Electronics"
+		@i=@i+1
 		puts "\n1.Mobile\t\t10000rs \n2.Television\t\t60000rs \n3.Gaming Console\t30000rs \n4.Washing Machine\t20000rs"
 		print "\nPlease enter your choice:  "
-		electronic_choice=gets
-		case electronic_choice.to_i
+		e=gets
+		case e.to_i
 			when 1
 				mobile()
 			when 2
@@ -43,47 +45,60 @@ class Shoppingmall
 		end
 	end
 	def mobile()
-		@product="Mobile"
+		@pro[@j]="Mobile"
+		@j=@j+1
 		puts "\nyou have selected Mobile whose price is 10,000 rs"
 		print "Enter the quantity of mobile:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=10000
-		totalpricecalculate(product_quantity,10000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=10000
+		@l=@l+1		
+		tprice(qty,10000)
 	end
 	def television()
-		@product="Television"
+		@pro[@j]="Television"
+		@j=@j+1
 		puts "\nyou have selected Television whose price is 60,000 rs"
 		print "Enter the quantity of television:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=60000
-		totalpricecalculate(product_quantity,60000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=60000
+		@l=@l+1
+		tprice(qty,60000)
 	end
 	def game()
-		@product="Gaming Console"
+		@pro[@j]="Gaming Console"
+		@j=@j+1
 		puts "\nyou have selected Gaming Console whose price is 30,000 rs"
 		print "Enter the quantity of gaming console:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=30000
-		totalpricecalculate(product_quantity,30000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=30000
+		@l=@l+1
+		tprice(qty,30000)
 	end
 	def washingmachine()
-		@product="Washing Machine"
+		@pro[@j]="Washing Machine"
+		@j=@j+1
 		puts "\nyou have selected Washing Machine whose price is 20,000 rs"
 		print "Enter the quantity of Washing machine:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=20000
-		totalpricecalculate(product_quantity,20000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=20000
+		@l=@l+1
+		tprice(qty,20000)
 	end
 	def appliances()
-		@categories="Appliances"
+		@cat[@i]="Appliances"
+		@i=@i+1
 		puts "\n1.Split AC\t\t60000rs \n2.Room Heater\t\t15000rs \n3.Microwave Oven\t10000rs"
 		print "\nPlease enter your choice:  "
-		appliance_choice=gets
-		case appliance_choice.to_i
+		a=gets
+		case a.to_i
 			when 1
 				ac()
 			when 2
@@ -95,40 +110,50 @@ class Shoppingmall
 		end
 	end
 	def ac()
-		@product="Split AC"
+		@pro[@j]="Split AC"
+		@j=@j+1
 		puts "\nyou have selected Split AC whose price is 60,000 rs"
 		print "Enter the quantity of Split AC:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=60000
-		totalpricecalculate(product_quantity,60000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=60000
+		@l=@l+1
+		tprice(qty,60000)
 	end
 	def heater()
-		@product="Room Heater"
+		@pro[@j]="Heater"
+		@j=@j+1
 		puts "\nyou have selected Room Heater whose price is 15,000 rs"
 		print "Enter the quantity of Room Heater:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=15000
-		totalpricecalculate(product_quantity,15000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=15000
+		@l=@l+1
+		tprice(qty,15000)
 	end
 	def oven()
-		@product="Microwave Oven"
+		@pro[@j]="Oven"
+		@j=@j+1
 		puts "\nyou have selected Microwave Oven whose price is 10,000 rs"
 		print "Enter the quantity of Microwave Oven:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=10000
-		totalpricecalculate(product_quantity,10000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=10000
+		@l=@l+1
+		tprice(qty,10000)
 	end
 	def furniture()
-		@categories="Furniture"
-		puts "\n1.Chair\t\t2000rs \n2.Sofas\t\t15000rs \n3.Bean Bags\t500rs"
+		@cat[@i]="Furniture"
+		@i=@i+1
+		puts "\n1.Beds\t\t2000rs \n2.Sofas\t\t15000rs \n3.Bean Bags\t500rs"
 		print "\nPlease enter your choice:  "
-		furniture_choice=gets
-		case furniture_choice.to_i
+		fur=gets
+		case fur.to_i
 			when 1
-				chair()
+				bed()
 			when 2
 				sofa()
 			when 3
@@ -137,39 +162,49 @@ class Shoppingmall
 				puts "Please select proper input"
 		end
 	end
-	def chair()
-		@product="Chair"
-		puts "\nyou have selected Chair whose price is 2,000 rs"
-		print "Enter the quantity of Chair:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=2000
-		totalpricecalculate(product_quantity,2000)
+	def bed()
+		@pro[@j]="Bed"
+		@j=@j+1
+		puts "\nyou have selected Bed whose price is 2,000 rs"
+		print "Enter the quantity of Bed:  "
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=2000
+		@l=@l+1
+		tprice(qty,2000)
 	end
 	def sofa()
-		@product="Sofa"
+		@pro[@j]="Sofa"
+		@j=@j+1
 		puts "\nyou have selected Sofa whose price is 15,000 rs"
 		print "Enter the quantity of sofa:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=15000
-		totalpricecalculate(product_quantity,15000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=15000
+		@l=@l+1
+		tprice(qty,15000)
 	end
 	def beanbag()
-		@product="Bean Bag"
+		@pro[@j]="Bean Bag"
+		@j=@j+1
 		puts "\nyou have selected Bean Bag whose price is 500 rs"
 		print "Enter the quantity of Bean Bag:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=500
-		totalpricecalculate(product_quantity,500)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=500
+		@l=@l+1
+		tprice(qty,500)
 	end
 	def fashion()
-		@categories="Fashion"
+		@cat[@i]="Fashion"
+		@i=@i+1
 		puts "\n1.Clothing\t\t1000rs \n2.Handbags\t\t500rs \n3.Sports Wear\t\t2000rs"
 		print "\nPlease enter your choice:  "
-		fashion_choice=gets
-		case fashion_choice.to_i
+		f=gets
+		case f.to_i
 			when 1
 				clothes()
 			when 2
@@ -181,40 +216,47 @@ class Shoppingmall
 		end
 	end
 	def clothes()
-		@product="Clothes"
+		@pro[@j]="Clothes"
+		@j=@j+1
 		puts "\nyou have selected clothes whose price is 1,000 rs"
 		print "Enter the quantity of clothes:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=1000
-		totalpricecalculate(product_quantity,1000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=1000
+		@l=@l+1
+		tprice(qty,1000)
 	end
 	def handbag()
-		@product="Handbag"
+		@pro[@j]="Handbag"
+		@j=@j+1
 		puts "\nyou have selected Handbag whose price is 500 rs"
 		print "Enter the quantity of Handbag:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=500
-		totalpricecalculate(product_quantity,500)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=500
+		@l=@l+1
+		tprice(qty,500)
 	end
 	def sportswear()
-		@product="Sports Wear"
+		@pro[@j]="SportsWear"
+		@j=@j+1
 		puts "\nyou have selected sportswear whose price is 2,000 rs"
 		print "Enter the quantity of sportswear:  "
-		product_quantity=gets.to_i
-		@quantity=product_quantity
-		@price=2000
-		totalpricecalculate(product_quantity,2000)
+		qty=gets.to_i
+		@q[@k]=qty
+		@k=@k+1
+		@p[@l]=2000
+		@l=@l+1
+		tprice(qty,2000)
 	end
-	def totalpricecalculate(product_quantity,price)
-		@@total_price=@@total_price+(product_quantity*price)
-		puts "\nthe total price is:  #{@@total_price}"
+	def tprice(qty,price)
+		@@totalprice=@@totalprice+(qty*price)
+		puts "\nthe total price is:  #{@@totalprice}"
 		exitchoice()
 	end
 	def exitchoice()
-		@shopping_hash={:category => @categories ,:product => @product ,:quantity => @quantity ,:price => @price}
-		@@shopping_array.push(@shopping_hash)
 		print "\nDo you want to continue shopping?(y/n)  "
 		choice=gets.chomp
 		case choice
@@ -229,13 +271,13 @@ class Shoppingmall
 	def invoice()
 		puts "\nHello #{@name}"
 		puts "------------------------------------INVOICE-------------------------------------"
-		puts "CATEGORY\tPRODUCT\t\tQUANTITY\tPRICE"
-		puts "--------------------------------------------------------------------------------"
-		@@shopping_array.each do |item|
-			puts "#{item[:category]} \t #{item[:product]} \t\t #{item[:quantity]} \t #{item[:price]}"
+		# puts "category\tproduct\t\tquantity\tprice\ttotal_price"
+		for i in 0..@cat.length
+			puts "#{@cat[i]}\t#{@pro[i]}\t\t#{@q[i]}\t#{@p[i]}"
 		end
-		puts "\n\nYour total bill is RS #{@@total_price}/-"
+		puts "\n\nYour total bill is RS #{@@totalprice}/-"
 		puts "ThankYou for shopping..."
 	end
 end
-obj1=Shoppingmall.new()
+
+obj1=Mainclass.new()
